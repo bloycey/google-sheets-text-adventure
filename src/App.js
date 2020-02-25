@@ -6,38 +6,60 @@ import StoryPage from "./components/StoryPage";
 
 const Tabletop = require("tabletop");
 const publicSpreadSheetUrl =
-	"https://docs.google.com/spreadsheets/d/1twa7BVs9FPT4lsgINojR8-ntkCrWWR_w4BPGJRqCXT0/edit?usp=sharing";
+	"https://docs.google.com/spreadsheets/d/1fTURShEeAWJhJ4qRhPpjV287dSFRmW3jTa3OlBaL-oY/edit?usp=sharing";
 
 const App = () => {
 	const [storyData, setStoryData] = useState([]);
 	useEffect(() => {
 		Tabletop.init({
-			key: publicSpreadSheetUrl,
-			simpleSheet: true
-		}).then(function(data, tabletop) {
-			setStoryData(data);
+			key: publicSpreadSheetUrl
+		}).then(data => {
+			const { Sheet1, Sheet2 } = data;
+			const storyData = {
+				intro: Sheet1.elements[0],
+				story: Sheet2.elements
+			};
+			setStoryData(storyData);
 		});
 	}, []);
 	if (storyData.length < 1) {
 		return <div className="container">loading story...</div>;
 	}
+	const {
+		intro: {
+			intro_title,
+			intro_text,
+			intro_img,
+			intro_img_alt,
+			intro_btn_text,
+			intro_btn_path
+		}
+	} = storyData;
 	return (
 		<Router>
 			<Switch>
 				<Route exact path="/">
 					<div className="container">
-						<h1>The Rat Lord's Dilemma</h1>
-						<p>
-							A rivetting test tale with meaningless choices and
-							disappointing outcomes
-						</p>
-						<Link to="/the-story-begins" className="link-btn">
-							Start story
-						</Link>
+						{intro_title && <h1>{intro_title}</h1>}
+						{intro_text && <p className="content">{intro_text}</p>}
+						{intro_img && (
+							<img
+								src={intro_img}
+								alt={
+									intro_img_alt ||
+									"Text adventure homepage image"
+								}
+							/>
+						)}
+						{intro_btn_path && intro_btn_text && (
+							<Link to={intro_btn_path} className="link-btn">
+								{intro_btn_text}
+							</Link>
+						)}
 					</div>
 				</Route>
 				<Route path="/:id">
-					<StoryPage storyData={storyData} />
+					<StoryPage storyData={storyData.story} />
 				</Route>
 			</Switch>
 		</Router>
