@@ -5,8 +5,7 @@ import "./App.css";
 import StoryPage from "./components/StoryPage";
 
 const Tabletop = require("tabletop");
-const publicSpreadSheetUrl =
-	"https://docs.google.com/spreadsheets/d/1fTURShEeAWJhJ4qRhPpjV287dSFRmW3jTa3OlBaL-oY/edit?usp=sharing";
+const publicSpreadSheetUrl = process.env.REACT_APP_PUBLIC_SPREADSHEET_URL;
 
 const App = () => {
 	const [storyData, setStoryData] = useState([]);
