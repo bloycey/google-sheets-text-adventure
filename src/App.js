@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import "./App.css";
 
 import StoryPage from "./components/StoryPage";
 
@@ -13,6 +12,7 @@ const App = () => {
 		Tabletop.init({
 			key: publicSpreadSheetUrl
 		}).then(data => {
+			console.log(data);
 			const { Sheet1, Sheet2 } = data;
 			const storyData = {
 				intro: Sheet1.elements[0],
@@ -31,16 +31,26 @@ const App = () => {
 			intro_img,
 			intro_img_alt,
 			intro_btn_text,
-			intro_btn_path
+			intro_btn_path,
+			style
 		}
 	} = storyData;
+
+	if (!style || style === "1") {
+		import(`./css/1.css`).then(() => null);
+	} else {
+		import(`./css/${style}.css`).then(() => null);
+	}
+
 	return (
 		<Router>
 			<Switch>
 				<Route exact path="/">
 					<div className="container">
 						{intro_title && <h1>{intro_title}</h1>}
-						{intro_text && <p className="content">{intro_text}</p>}
+						{intro_text && (
+							<p className="content subtitle">{intro_text}</p>
+						)}
 						{intro_img && (
 							<img
 								src={intro_img}
@@ -51,7 +61,10 @@ const App = () => {
 							/>
 						)}
 						{intro_btn_path && intro_btn_text && (
-							<Link to={intro_btn_path} className="link-btn">
+							<Link
+								to={intro_btn_path}
+								className="link-btn link-btn-home"
+							>
 								{intro_btn_text}
 							</Link>
 						)}
