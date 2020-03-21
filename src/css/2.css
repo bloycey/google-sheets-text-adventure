@@ -13,14 +13,35 @@ body {
   color: rgba(0, 0, 0, 0.84);
   font-family: "PT Serif", serif;
   font-size: 24px;
+}
+
+.main {
+  min-height: calc(100vh - 50px);
   padding-bottom: 24px;
 }
 
 @media (min-width: 575px) {
-  body {
+  .main {
     padding-top: 80px;
     padding-bottom: 80px;
   }
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer p a {
+  font-size: 18px;
+  display: inline-block;
+  padding: 15px;
+  border: 1px solid #baa073;
 }
 
 a {

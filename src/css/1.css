@@ -10,11 +10,27 @@ body {
   color: #26de14;
   font-family: "Space Mono", monospace;
   font-size: 22px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  background-color: #080808;
+}
+
+.footer p {
+  font-size: 18px;
+  margin: 0;
+}
+
+.main {
+  min-height: calc(100vh - 50px);
   padding-bottom: 24px;
 }
 
 @media (min-width: 575px) {
-  body {
+  .main {
     padding-top: 80px;
     padding-bottom: 80px;
   }
