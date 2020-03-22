@@ -12,7 +12,6 @@ const App = () => {
 		Tabletop.init({
 			key: publicSpreadSheetUrl
 		}).then(data => {
-			console.log(data);
 			const { Sheet1, Sheet2 } = data;
 			const storyData = {
 				intro: Sheet1.elements[0],
