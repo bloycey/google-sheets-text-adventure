@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 
 import Header from "./Header";
@@ -11,6 +11,9 @@ const formatCommaSeperatedData = arrayOfData =>
     .filter(choice => choice !== "");
 
 const StoryPage = ({ storyData }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
   const { id } = useParams();
   const correctPageData = storyData.story.find(story => story.url === id);
   if (!correctPageData || correctPageData.length < 1) {
