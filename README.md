@@ -40,7 +40,7 @@ You'll need to create your own sheet and copy and paste the fields accross. Note
 
 Netlify is a service that allows free hosting for projects from github. Fortunately you just made a github account so this includes you!
 
-Sign up and choose the `GitHub` option.
+Go to [netlify](https://www.netlify.com/), sign up and choose the `GitHub` option.
 
 #### 6. Set up your site.
 
