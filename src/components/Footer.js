@@ -1,18 +1,25 @@
 import React from "react";
+import StorySummary from "../components/StorySummary";
 
-const Footer = () => {
+const Footer = ({ title, intro }) => {
+  console.log("footer data", title, intro);
   return (
-    <div className="footer">
-      <div className="container">
-        <a
-          href="https://github.com/bloycey/google-sheets-text-adventure"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Make your own text adventure!
-        </a>
+    <>
+      <div className="sm-only">
+        <StorySummary title={title} intro={intro} />
       </div>
-    </div>
+      <div className="footer">
+        <div className="container">
+          <a
+            href="https://github.com/bloycey/google-sheets-text-adventure"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Make your own text adventure!
+          </a>
+        </div>
+      </div>
+    </>
   );
 };
 

@@ -59,11 +59,8 @@ const StoryPage = ({ storyData }) => {
             <StorySummary title={storyData.title} intro={storyData.intro} />
           </div>
         </div>
-        <div className="sm-only">
-          <StorySummary title={storyData.title} intro={storyData.intro} />
-        </div>
       </div>
-      <Footer />
+      <Footer title={storyData.title} intro={storyData.intro} />
     </>
   );
 };
