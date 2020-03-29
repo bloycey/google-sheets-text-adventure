@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 
+import Header from "./Header";
 import Footer from "./Footer";
 
 const formatCommaSeperatedData = arrayOfData =>
@@ -11,7 +12,7 @@ const formatCommaSeperatedData = arrayOfData =>
 
 const StoryPage = ({ storyData }) => {
   const { id } = useParams();
-  const correctPageData = storyData.find(story => story.url === id);
+  const correctPageData = storyData.story.find(story => story.url === id);
   if (!correctPageData || correctPageData.length < 1) {
     return (
       <div className="container">
@@ -22,21 +23,50 @@ const StoryPage = ({ storyData }) => {
       </div>
     );
   }
-  const { title, content, choices, image, paths } = correctPageData;
+  const {
+    title,
+    subtitle,
+    intro,
+    content,
+    choices,
+    image,
+    paths
+  } = correctPageData;
   const formattedChoices = formatCommaSeperatedData(choices);
   const formattedPaths = formatCommaSeperatedData(paths);
   return (
     <>
-      <div className="main container">
-        {title && <h1>{title}</h1>}
-        {content && <p className="content">{content}</p>}
-        {image && <img src={image} alt="" />}
-        {formattedChoices.length > 0 &&
-          formattedChoices.map((choice, index) => (
-            <Link to={formattedPaths[index]} className="link-btn" key={choice}>
-              {choice}
+      <div className="page-wrapper">
+        <Header title={storyData.title} />
+        <div className="main container">
+          <div className="story-heading-wrapper">
+            {title && <h2 className="title">{title}</h2>}
+            {subtitle && <p className="subtitle">{subtitle}</p>}
+          </div>
+          {content && <p className="content story-content">{content}</p>}
+          <div className="choices-wrapper">
+            <h4 className="uppercase bold text-dark">Make a choice</h4>
+            {formattedChoices.length > 0 &&
+              formattedChoices.map((choice, index) => (
+                <Link
+                  to={formattedPaths[index]}
+                  className="btn-primary block"
+                  key={choice}
+                >
+                  {choice}
+                </Link>
+              ))}
+          </div>
+        </div>
+        <div className="story-summary">
+          <div className="container">
+            <h4 className="uppercase bold text-primary">{storyData.title}</h4>
+            <p>{storyData.intro}</p>
+            <Link to="/" className="btn-primary">
+              Start from the beginning
             </Link>
-          ))}
+          </div>
+        </div>
       </div>
       <Footer />
     </>
