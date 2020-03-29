@@ -73,8 +73,7 @@ body {
 }
 
 .header {
-  padding-top: 4px;
-  padding-bottom: 4px;
+  height: 50px;
   display: flex;
   align-items: center;
 }
@@ -139,7 +138,7 @@ body {
 }
 
 .story-heading-wrapper {
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .title,
@@ -169,7 +168,7 @@ body {
 }
 
 .intro-text {
-  margin-top: 32px;
+  margin-top: 16px;
   margin-bottom: 40px;
 }
 
@@ -182,7 +181,7 @@ body {
 
 .content {
   white-space: pre-line;
-  line-height: 140%;
+  line-height: 170%;
 }
 
 @media (min-width: 575px) {
@@ -200,6 +199,126 @@ body {
 @media (min-width: 992px) {
   .container {
     width: 960px;
+  }
+}
+
+.lg-only {
+  display: none;
+}
+
+.subtitle {
+  opacity: 0.6;
+}
+
+@media (min-width: 1200px) {
+  body {
+    font-size: 22px;
+  }
+
+  .content {
+    margin-top: 40px;
+    margin-bottom: 56px;
+    line-height: 190%;
+  }
+
+  .sm-only {
+    display: none;
+  }
+
+  .btn-primary {
+    font-size: 18px;
+  }
+
+  .lg-only {
+    display: block;
+  }
+
+  .title {
+    font-size: 40px;
+  }
+
+  .main.container,
+  .footer .container {
+    width: 75%;
+    margin-left: 12.5%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .main.container {
+    margin-top: 200px;
+  }
+
+  .main-content {
+    width: 70%;
+    padding-right: 100px;
+  }
+
+  .sidebar {
+    width: 30%;
+    text-align: right;
+  }
+
+  .story-summary {
+    margin: 0;
+    padding: 0;
+    background-color: initial;
+  }
+
+  .project-summary p,
+  .story-summary p {
+    font-size: 16px;
+    font-weight: 300;
+    margin-top: 24px;
+    margin-bottom: 32px;
+  }
+
+  .project-summary a,
+  .story-summary a {
+    font-size: 14px;
+  }
+
+  .header-wrapper .container {
+    width: 100%;
+  }
+
+  .header-wrapper .header {
+    height: 8px;
+    overflow: visible;
+  }
+
+  .header-wrapper .header-title {
+    display: none;
+  }
+
+  .header-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background-color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .header-img img {
+    height: 50px;
+  }
+
+  .choices-wrapper {
+    margin-bottom: 150px;
+  }
+
+  .choices-wrapper h4 {
+    margin-bottom: 32px;
+  }
+
+  .choices-wrapper .btn-primary {
+    border: none;
+    font-size: 22px;
+    border-left: 4px solid var(--primary-color);
+    margin-bottom: 8px;
   }
 }
 

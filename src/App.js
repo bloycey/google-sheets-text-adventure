@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import StoryPage from "./components/StoryPage";
+import ProjectSummary from "./components/ProjectSummary";
+import "./css/style.css";
 
 const Tabletop = require("tabletop");
 const publicSpreadSheetUrl = process.env.REACT_APP_PUBLIC_SPREADSHEET_URL;
@@ -27,14 +29,8 @@ const App = () => {
     return <div className="container">loading story...</div>;
   }
   const {
-    intro: { intro_title, intro_text, intro_btn_text, intro_btn_path, style }
+    intro: { intro_title, intro_text, intro_btn_text, intro_btn_path }
   } = storyData;
-
-  if (!style || style === "1") {
-    import(`./css/1.css`).then(() => null);
-  } else {
-    import(`./css/${style}.css`).then(() => null);
-  }
 
   return (
     <Router>
@@ -43,17 +39,25 @@ const App = () => {
           <div className="page-wrapper">
             <Header title={intro_title} />
             <div className="main container">
-              {intro_text && (
-                <p className="fw-light content intro-text">{intro_text}</p>
-              )}
-              {intro_btn_path && intro_btn_text && (
-                <Link to={intro_btn_path} className="btn-primary">
-                  {intro_btn_text}
-                </Link>
-              )}
+              <div className="main-content">
+                {intro_title && (
+                  <h1 className="lg-only title">{intro_title}</h1>
+                )}
+                {intro_text && (
+                  <p className="fw-light content intro-text">{intro_text}</p>
+                )}
+                {intro_btn_path && intro_btn_text && (
+                  <Link to={intro_btn_path} className="btn-primary">
+                    {intro_btn_text}
+                  </Link>
+                )}
+              </div>
+              <div className="lg-only sidebar">
+                <ProjectSummary />
+              </div>
             </div>
           </div>
-          <Footer />
+          <Footer title={intro_title} intro={intro_text} />
         </Route>
         <Route path="/:id">
           <StoryPage
