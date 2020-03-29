@@ -1,4 +1,4 @@
-# Google Sheets Text adventure
+# Google Sheets Text Adventure
 
 Here's an example of what you can build: [Snake Story](https://snakestory.netlify.com/).
 
