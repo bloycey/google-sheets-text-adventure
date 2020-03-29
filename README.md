@@ -2,6 +2,8 @@
 
 Here's an example of what you can build: [Snake Story](https://snakestory.netlify.com/).
 
+![Preview](docs/img/preview.png)
+
 This was made using [React](https://reactjs.org/), [React Router](https://reacttraining.com/react-router/web/guides/quick-start), and [Tabletop.js](https://github.com/jsoma/tabletop) however no knowledge of any of these tools are needed to get started with your own story hosted online for free. Just follow the steps and below you can create your own choose-your-own adventure story.
 
 ### How to create your own story.
