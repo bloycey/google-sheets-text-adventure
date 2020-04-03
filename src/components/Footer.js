@@ -2,7 +2,6 @@ import React from "react";
 import StorySummary from "../components/StorySummary";
 
 const Footer = ({ title, intro }) => {
-  console.log("footer data", title, intro);
   return (
     <>
       <div className="sm-only">

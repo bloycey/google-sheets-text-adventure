@@ -6,80 +6,73 @@ Here's an example of what you can build: [Snake Story](https://snakestory.netlif
 
 This was made using [React](https://reactjs.org/), [React Router](https://reacttraining.com/react-router/web/guides/quick-start), and [Tabletop.js](https://github.com/jsoma/tabletop) however no knowledge of any of these tools are needed to get started with your own story hosted online for free. Just follow the steps and below you can create your own choose-your-own adventure story.
 
-### How to create your own story.
+## How to create your own story.
 
-#### 1. Create a github profile.
+#### 1. Create a google sheet
 
-If you've already got a github profile then you can skip to step 2.
+First head to [google sheets](https://docs.google.com/spreadsheets/u/0/) and create a blank sheet.
 
-If you don't yet have a github profile you will to set one up. You can do this from the [homepage of github here](https://github.com/).
+In a new tab open up the [tempate sheet here](https://docs.google.com/spreadsheets/d/1MQyGHFf_vjS-vN7Ra7LHmhYhKMnVgxaF9wmST4MsXeM/edit?usp=sharing)
 
-#### 2. Fork this repo.
+Copy and paste accross all the fields from the template into your own google spreadsheet. Note that there are 2 seperate sheets. Sheet1 is for the homepage. Sheet2 is for the story. It's important that the fields in row 1 stay the same on both sheets.
 
-You can fork this repo by clicking the button at the top of the page that looks like this:
-
-![How to fork project](docs/img/fork.png)
-
-Forking a repo creates a copy of the a project in your own github account. You'll need this for later!
-
-#### 3. Create a google sheet
-
-[Use this sheet as a template](https://docs.google.com/spreadsheets/d/1MQyGHFf_vjS-vN7Ra7LHmhYhKMnVgxaF9wmST4MsXeM/edit?usp=sharing)
-
-You'll need to create your own sheet and copy and paste the fields accross. Note that there are 2 seperate sheets. Sheet1 is for the homepage. Sheet2 is for the story. It's important that the fields in row 1 stay the same on both sheets.
-
-#### 4. Adjust the settings and grab the shareable link
+#### 2. Adjust the settings and grab the shareable link
 
 - Go to the `File` menu and pick `Publish to the web`.
 - Click `Start Publishing`. The default settings are fine.
-- Click on the big green `Share` button in the top right hand corner of the page.
-- Click on the very page `Advanced` button.
-- Make sure access says `Anyone can *view*`.
-- Click Save.
+- Back on the spreadsheet view click on the big green `Share` button in the top right hand corner of the page.
+- Click on the very pale `Advanced` button.
+- Make sure access says `Anyone with the link can *view*`.
 - Copy the `Link to Share` and paste it somewhere handy. You'll need this soon.
+- Click Save.
 
-#### 5. Create a netlify account
+#### 3. Create a github account and netlify account.
 
-Netlify is a service that allows free hosting for projects from github. Fortunately you just made a github account so this includes you!
+If you've already got a github profile and netlify account then you can skip to step 4.
 
-Go to [netlify](https://www.netlify.com/), sign up and choose the `GitHub` option.
+Github: Sign up for a [free github account here](https://github.com/).
 
-#### 6. Set up your site.
+Netlify: Go to [netlify](https://www.netlify.com/), sign up and choose the `GitHub` option.
 
-Once you're logged in select the teal `New site from Git` button.
+#### 4. Click the button below and follow the prompts.
 
-![New site from git](docs/img/netlify.png)
+[![Netlify Deploy Button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/bloycey/google-sheets-text-adventure)
 
-On the next screen select the GitHub option.
+This may take a little while. Be patient!
 
-This might prompt you to login with GitHub. Do so and select the `google-sheets-text-adventure` repo you forked earlier.
+If all goes succcessfully you should now have a site hosted on netlify with a strange gibberish URL. Excellent. At this stage the site will still be blank because we haven't yet linked the google spreadsheet to your site.
 
-The next screen will show some build options for the site. Leave these as is. Click the `advanced` button and click the `new variable` button.
+#### 5. Set up your site.
 
-In the key section copy and paste the following: `REACT_APP_PUBLIC_SPREADSHEET_URL`.
+Click on the site settings button for your new site.
+
+![](docs/img/site_settings.png)
+
+In the side panel click the "Build & Deploy" tab.
+
+Scroll down to the section titled "Environment Variables.
+
+Click the `new variable` button. In the key section copy and paste the following: `REACT_APP_PUBLIC_SPREADSHEET_URL`.
 
 In the value section paste the spreadsheet url that you saved earlier.
 
 ![](docs/img/environment-variable.png)
 
-Now click `deploy`!
+Save!
 
 #### 7. Customise your URL
 
-Netlify will now build your site for you. Once it's done it will generate a gibberish url for you to view your site on. Click it and take a look, everything should be working - but the story won't be very interesting.
+While we're fiddling with the settings let's update the URL from that gibberish to something recognisable.
 
-Let's make that URL something more appealing.
-
-Click on `Change site name` from your site's dashboard.
-
-Here you can make the name more appealing. For the moment the URL will always be `SOMETHING.netlify.com` however if you'd like to buy a custom domain this is possible too. [Instructions for that are here](https://docs.netlify.com/domains-https/custom-domains/#definitions).
+Head to the domain management tab in settings. In the custom domains section click the options dropdown and edit the site name.
 
 #### 8. Write your story!
 
-All the hard bits are done now! All that's left is to write your story. As you update the google spreadsheet your site will automatically update. Woohoo!
+All the hard bits are done now! If you refresh your site you should now see All that's left is to write your story. As you update the google spreadsheet your site will automatically update. Woohoo!
 
 A few tips on writing your story:
 
 - Write your copy in a word processor like Google Docs or Microsoft word first, and then copy and paste it into the google sheet. Google sheets isn't good at formatting line breaks.
 - If you want to link back to the homepage use "/" in the path field.
 - Use a comma-seperated list for the choices and paths. Each choice should correlate to a path.
+- If you have trouble with text overlapping in the spreadsheet select all the cells, head to the Format/Text Wrapping, and select 'clip'.
