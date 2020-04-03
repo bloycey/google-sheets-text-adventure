@@ -1,6 +1,6 @@
 # Google Sheets Text Adventure
 
-Here's an example of what you can build: [Snake Story](https://snakestory.netlify.com/).
+Here's an example of what you can build: [Snake Story](https://snakestory.netlify.com/) (However I'm sure your story will be much better!)
 
 ![Preview](docs/img/preview.png)
 
